@@ -17,7 +17,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:3001"],
+  origin: ["http://localhost:3000", "http://localhost:3001",  "https://ai-social-post-analyzer.vercel.app"],
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 }));

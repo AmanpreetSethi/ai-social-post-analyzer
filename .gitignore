@@ -1,0 +1,9 @@
+# Hide secrets
+server/.env
+.env
+
+# dependencies
+node_modules
+
+# uploads folder
+server/uploads

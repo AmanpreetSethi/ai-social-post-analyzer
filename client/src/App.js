@@ -20,7 +20,7 @@ const [platform, setPlatform] = useState("Instagram");
     setData(null);
 
     try {
-      const res = await axios.post("http://localhost:5000/upload", form);
+      const res = await axios.post("https://ai-social-post-analyzer.onrender.com/upload", form);
       setData(res.data);
     } catch (err) {
       const msg =

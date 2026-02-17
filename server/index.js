@@ -17,10 +17,10 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:3001",  "https://ai-social-post-analyzer.vercel.app"],
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
+  origin: true,
+  credentials: true,
 }));
+
 app.use(express.json());
 
 const uploadsDir = path.join(__dirname, "uploads");
@@ -34,6 +34,11 @@ if (!geminiKey) {
   console.warn("GEMINI_KEY is not set in .env – /upload will fail until configured.");
 }
 const genAI = new GoogleGenerativeAI(geminiKey || "");
+
+app.get("/", (req, res) => {
+  res.send("Backend running 🚀");
+});
+
 
 app.post("/upload", upload.single("file"), async (req, res) => {
   try {

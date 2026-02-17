@@ -22,7 +22,11 @@ const [platform, setPlatform] = useState("Instagram");
     try {
       const API = "https://ai-social-post-analyzer.onrender.com";
 
-const res = await axios.post(`${API}/upload`, form);
+const res = await axios.post(`${API}/upload`, form, {
+  headers: {
+    "Content-Type": "multipart/form-data",
+  },
+});
 
       setData(res.data);
     } catch (err) {

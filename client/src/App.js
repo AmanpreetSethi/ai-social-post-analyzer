@@ -9,8 +9,23 @@ function App() {
   const [caption, setCaption] = useState("");
 const [platform, setPlatform] = useState("Instagram");
 
+  
+  const API = "https://ai-social-post-analyzer.onrender.com";
+
+// wake backend first
+const wakeServer = async () => {
+  try {
+    await fetch(API);
+    console.log("Server awake");
+  } catch (e) {
+    console.log("Waking server...");
+  }
+};
+
 
   const upload = async () => {
+
+  await wakeServer(); 
     if (!file) return alert("Please upload a file first");
 
     const form = new FormData();
